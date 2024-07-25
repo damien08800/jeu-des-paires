@@ -1,0 +1,8 @@
+//jeu des paires
+
+//fonctionnalitées notables
+menu jouer
+paramétrer la partie
+    -nombres de cartes
+    -skin/thème
+    -durée de la partie
