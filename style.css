@@ -1,0 +1,12 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    --maincolor: rgb(8,70,67);
+}
+body{
+    background-color: var(--maincolor);
+}
+h1{
+    color: white;
+}

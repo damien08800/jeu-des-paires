@@ -1,8 +1,27 @@
 //jeu des paires
 
-//fonctionnalitées notables
-menu jouer
-paramétrer la partie
-    -nombres de cartes
-    -skin/thème
-    -durée de la partie
+//fonctionnalitées notables pour l'utilisateur
+    -choisir nombres de cartes
+    -changer skin/thème
+    -durée de la partie(timer ou chronomètre)
+    -systeme de scoreboard
+
+
+//pages du projet
+    -page accueil(menu jouer, changer skin)
+    -page du jeu
+    -page de fin de partie
+
+//fonctionnalitées back-end pour le jeu
+    -générer les cartes et les répartir aléatoirement
+    -pouvoir identifier les paires
+    -pouvoir compter le nombre de paires trouvées
+    -systeme de timer et de chronomètre
+    -pouvoir changer le skin du jeu dans la page d'accueil et récuperer le skin sélectioné sur la page de jeu
+    -reset la partie
+    -
+
+//js a faire
+    -fonction pour générer les cartes aléatoirement
+    -localStorage pour transporter des infos a travers les pages
+    -
