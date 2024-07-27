@@ -1,12 +1,103 @@
+:root{
+    /* color */
+    --grey: #6A645A;
+    --grey: #bd9955;
+    --blue: rgb(54, 83, 110);
+    --white_yellow: #F1F1D3;
+
+    /* font */
+    --title: "Berkshire Swash", serif;
+    --corp: "Rubik", sans-serif;
+}
+
 *{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    --maincolor: rgb(8,70,67);
+    font-size: 16px;
 }
+
 body{
-    background-color: var(--maincolor);
+    background-color: var(--blue);
+    height: 100dvh;
+    width: 100dvw;
 }
+
 h1{
-    color: white;
+    color: var(--white_yellow);
+    text-align: center;
+    font-size: 5rem;
+    font-family: var(--title);
+    font-weight: bold;
+    padding: 1rem;
+    text-transform: capitalize;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 4px 4px 6px rgba(89, 79, 68, 0.5);
+}
+
+#card-number{
+    position: relative;
+    margin: 10px auto;
+    width: 80vw;
+    border: 2px solid #000;
+    display: flex;
+}
+
+#card-number button{
+    appearance: none;
+    border: none;
+    background-color: var(--grey);
+    color: var(--white_yellow);
+    font-family: var(--corp);
+    padding: 1rem 2rem;
+}
+
+.wrap {
+    position: relative;
+    width: 100%;
+    background-color: red;
+}
+
+.item {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    height: 250px;
+}
+
+[position] span {
+background-color: yellowgreen;
+border: 2px solid #000;
+display: flex;
+align-items: center;
+justify-content: center;
+height: 100%;
+z-index: -1;
+transform: translateX(0) scale(0.5);
+opacity: 0;
+transition: 1.3s;
+}
+
+[position="1"] {
+z-index: 99;
+    span {
+        transform: translateX(-55%) scale(0.7);
+        opacity: 1;
+    }
+}
+
+[position="2"] {
+z-index: 100; 
+    span {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+}
+
+[position="3"] {
+    z-index: 99;
+    span {
+        transform: translateX(55%) scale(0.7);
+        opacity: 1;
+    }
 }
