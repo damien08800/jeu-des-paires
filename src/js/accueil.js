@@ -8,11 +8,11 @@ const Direction = {
   let slideWrapper = document.querySelector('.wrap');
   
   if (maxLength >= 3) {
-    let leftButton = '<button type="button" class="custom-arrows custom-arrows--disappearing custom-arrows--prev" data-action="left">Prev</button>';
-    let rightButton = '<button type="button" class="custom-arrows custom-arrows--disappearing custom-arrows--next" data-action="right">Next</button>';
+    let leftButton = '<svg class="custom-arrows custom-arrows-left" data-action="left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>';
+    let rightButton = '<svg class="custom-arrows custom-arrows-right" data-action="right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>';
   
-    slideWrapper.insertAdjacentHTML('beforebegin', leftButton);
-    slideWrapper.insertAdjacentHTML('afterend', rightButton);
+    slideWrapper.insertAdjacentHTML('afterbegin', leftButton);
+    slideWrapper.insertAdjacentHTML('beforeend', rightButton);
   
     document.addEventListener('click', (evt) => {
       let eventTarget = evt.target;

@@ -1,4 +1,4 @@
-# Jeu des Paires
+# Jeu des Paires (en cours de developpement)
 
 ## Description du projet
 
