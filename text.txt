@@ -30,5 +30,5 @@
     -selecteur de thèmes
     -choix nombres de cartes
     -bouton jouer
-    - bouton leaderboard
+    -bouton leaderboard
     -
