@@ -13,11 +13,17 @@ const Direction = {
   
     slideWrapper.insertAdjacentHTML('afterbegin', leftButton);
     slideWrapper.insertAdjacentHTML('beforeend', rightButton);
+
+    antispam = true;
   
     document.addEventListener('click', (evt) => {
       let eventTarget = evt.target;
-      if (eventTarget.classList.contains('custom-arrows')) {
+      if (eventTarget.classList.contains('custom-arrows') && antispam) {
+        antispam = !antispam;
         nextSlide(eventTarget.getAttribute('data-action'));
+        setTimeout(() => {
+          antispam = !antispam;
+        }, "900");
       }
     });
   }
