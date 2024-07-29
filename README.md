@@ -27,4 +27,4 @@ Aucun prérequis particulier, juste un navigateur web moderne.
 1. Clonez le dépôt GitHub sur votre machine locale.
 
    ```bash
-   git clone https://github.com/votre-nom-utilisateur/jeu-des-paires.git
+   git clone https://github.com/damien08800/jeu-des-paires.git
