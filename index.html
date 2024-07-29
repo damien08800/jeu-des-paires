@@ -125,60 +125,84 @@
             <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_768_31" result="shape"/>
             </filter>
             </defs>
-            </svg>
-            
-            
-            <h1>jeu des paires</h1>
-        </nav>
+        </svg>
         
+        
+        <h1>jeu des paires</h1>
+    </nav>
+        
+    <main>
+        <content>
 
-    <div id="many_card_selector">
-        <div>
-            <button type="button" class="selector">8 cartes</button>
-            <button type="button" class="selector active">16 cartes</button>
-            <button type="button" class="selector">32 cartes</button>
+            <div id="many_card_selector">
+                <div>
+                    <button type="button" class="selector">8 cartes</button>
+                    <button type="button" class="selector active">16 cartes</button>
+                    <button type="button" class="selector">32 cartes</button>
+                </div>
+            </div>
+            
+            <div id="theme_selector">
+                <section class="wrap">
+                    <article class="item" data-theme="onepiece" position="1">
+                        <div>
+                            <h2>one piece 1</h2>
+                            <img loading="lazy" src="src/skin_selector/one piece/onepiece_pc3.png" alt="image de sélection de thème one piece">
+                        </div>
+                    </article>
+                    <article class="item">
+                        <div>
+                            <h2>one piece 2</h2>
+                            <img loading="lazy" src="src/skin_selector/one piece/onepiece_pc3.png" alt="image de sélection de thème one piece">
+                        </div>
+                    </article>
+                    <article class="item">
+                        <div>
+                            <h2>one piece 3</h2>
+                            <img loading="lazy" src="src/skin_selector/one piece/onepiece_pc3.png" alt="image de sélection de thème one piece">
+                        </div>
+                    </article>
+                    <article class="item">
+                        <div>
+                            <h2>one piece 4</h2>
+                            <img loading="lazy" src="src/skin_selector/one piece/onepiece_pc3.png" alt="image de sélection de thème one piece">
+                        </div>
+                    </article>
+                    <article class="item">
+                        <div>
+                            <h2>one piece 5</h2>
+                            <img loading="lazy" src="src/skin_selector/one piece/onepiece_pc3.png" alt="image de sélection de thème one piece">
+                        </div>
+                    </article>
+                </section>
+            </div>
+
+            <div id="play_button" type="button">
+                <button id="play_button" type="button">jouer</button>
+            </div>
+            
+        </content>
+
+        <div id="right_icons">
+            <div id="leaderboard">
+                <svg width="458" height="412" viewBox="0 0 458 412" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M102.897 411.59H22.8661C10.2897 411.59 0 401.3 0 388.723V160.063C0 147.486 10.2897 137.197 22.8661 137.197H102.897C115.474 137.197 125.763 147.486 125.763 160.063V388.723C125.763 401.3 115.474 411.59 102.897 411.59ZM268.677 0H188.645C176.069 0 165.779 10.2897 165.779 22.8661V388.723C165.779 401.3 176.069 411.59 188.645 411.59H268.677C281.253 411.59 291.543 401.3 291.543 388.723V22.8661C291.543 10.2897 281.253 0 268.677 0ZM434.456 182.929H354.424C341.848 182.929 331.558 193.218 331.558 205.795V388.723C331.558 401.3 341.848 411.59 354.424 411.59H434.456C447.032 411.59 457.322 401.3 457.322 388.723V205.795C457.322 193.218 447.032 182.929 434.456 182.929Z" fill="#F1F1D3"/>
+                </svg>
+                <h3>leaderboard</h3>                 
+            </div>
+            <div id="mute">
+                <svg class="mute" fill="#000000" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_iconCarrier"><path d="M215.03 71.05L126.06 160H24c-13.26 0-24 10.74-24 24v144c0 13.25 10.74 24 24 24h102.06l88.97 88.95c15.03 15.03 40.97 4.47 40.97-16.97V88.02c0-21.46-25.96-31.98-40.97-16.97zM461.64 256l45.64-45.64c6.3-6.3 6.3-16.52 0-22.82l-22.82-22.82c-6.3-6.3-16.52-6.3-22.82 0L416 210.36l-45.64-45.64c-6.3-6.3-16.52-6.3-22.82 0l-22.82 22.82c-6.3 6.3-6.3 16.52 0 22.82L370.36 256l-45.63 45.63c-6.3 6.3-6.3 16.52 0 22.82l22.82 22.82c6.3 6.3 16.52 6.3 22.82 0L416 301.64l45.64 45.64c6.3 6.3 16.52 6.3 22.82 0l22.82-22.82c6.3-6.3 6.3-16.52 0-22.82L461.64 256z"></path></g></svg>
+                <svg class="unmute hidden" fill="#000000" viewBox="0 -32 576 576" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M215.03 71.05L126.06 160H24c-13.26 0-24 10.74-24 24v144c0 13.25 10.74 24 24 24h102.06l88.97 88.95c15.03 15.03 40.97 4.47 40.97-16.97V88.02c0-21.46-25.96-31.98-40.97-16.97zm233.32-51.08c-11.17-7.33-26.18-4.24-33.51 6.95-7.34 11.17-4.22 26.18 6.95 33.51 66.27 43.49 105.82 116.6 105.82 195.58 0 78.98-39.55 152.09-105.82 195.58-11.17 7.32-14.29 22.34-6.95 33.5 7.04 10.71 21.93 14.56 33.51 6.95C528.27 439.58 576 351.33 576 256S528.27 72.43 448.35 19.97zM480 256c0-63.53-32.06-121.94-85.77-156.24-11.19-7.14-26.03-3.82-33.12 7.46s-3.78 26.21 7.41 33.36C408.27 165.97 432 209.11 432 256s-23.73 90.03-63.48 115.42c-11.19 7.14-14.5 22.07-7.41 33.36 6.51 10.36 21.12 15.14 33.12 7.46C447.94 377.94 480 319.54 480 256zm-141.77-76.87c-11.58-6.33-26.19-2.16-32.61 9.45-6.39 11.61-2.16 26.2 9.45 32.61C327.98 228.28 336 241.63 336 256c0 14.38-8.02 27.72-20.92 34.81-11.61 6.41-15.84 21-9.45 32.61 6.43 11.66 21.05 15.8 32.61 9.45 28.23-15.55 45.77-45 45.77-76.88s-17.54-61.32-45.78-76.86z"></path></g></svg>
+                <h3>mute</h3>
+            </div>
+
         </div>
-    </div>
-    
-    <div id="theme_selector">
-        <section class="wrap">
-            <article class="item" data-theme="onepiece" position="1">
-                <div>
-                    <p>one piece 1</p>
-                    <img loading="lazy" src="src/skin_selector/one piece/onepiece_pc3.png" alt="image de sélection de thème one piece">
-                </div>
-            </article>
-            <article class="item">
-                <div>
-                    <p>one piece 2</p>
-                    <img loading="lazy" src="src/skin_selector/one piece/onepiece_pc3.png" alt="image de sélection de thème one piece">
-                </div>
-            </article>
-            <article class="item">
-                <div>
-                    <p>one piece 3</p>
-                    <img loading="lazy" src="src/skin_selector/one piece/onepiece_pc3.png" alt="image de sélection de thème one piece">
-                </div>
-            </article>
-            <article class="item">
-                <div>
-                    <p>one piece 4</p>
-                    <img loading="lazy" src="src/skin_selector/one piece/onepiece_pc3.png" alt="image de sélection de thème one piece">
-                </div>
-            </article>
-            <article class="item">
-                <div>
-                    <p>one piece 5</p>
-                    <img loading="lazy" src="src/skin_selector/one piece/onepiece_pc3.png" alt="image de sélection de thème one piece">
-                </div>
-            </article>
-        </section>
-    </div>
 
-    <div id="play_button" type="button">
-        <button id="play_button" type="button">jouer</button>
-    </div>
-    
+    </main>
+
+    <footer>
+        <p>footer</p>
+    </footer>
     <script src="src/js/accueil.js"></script>
 </body>
 </html>

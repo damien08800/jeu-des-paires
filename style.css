@@ -25,13 +25,22 @@ body{
     width: 100dvw;
 }
 
+main{
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    margin: auto;
+}
+
 nav{
     display: grid;
     padding: 1rem 0;
     grid-template-columns: 1fr 4fr 1fr;
     justify-items: center;
     align-items: center;
-        margin-bottom: 10vh;
+    margin-bottom: 5vh;
+    height: 15vh;
+    max-height: 15vh;
 }
 
 
@@ -99,7 +108,7 @@ h1{
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(255, 255, 255, 0.3);
 }
 
-[position] div p{
+[position] div h2{
     text-align: center;
     color: var(--white_yellow);
     font-weight: 900;
@@ -113,6 +122,10 @@ h1{
 
 [position] div img{
     width: 70%;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 
@@ -263,4 +276,76 @@ h1{
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 4px 4px 6px rgba(89, 79, 68, 0.5);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(255, 255, 255, 0.3);
     border-color: var(--white_yellow);
+}
+
+content{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#right_icons{
+    width: 11vw;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+#leaderboard, #mute{
+    width: 9vw;
+    height: 9vw;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: .1s;
+    cursor: pointer;
+    position: relative;
+}
+#leaderboard:active, #mute:active{
+    scale: 0.99;
+}
+#leaderboard svg, #mute svg{
+    width: 50%;
+    height: 50%;
+    fill: var(--white_yellow);
+}
+#mute svg g{
+    pointer-events: none;
+}
+#leaderboard svg path{
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(255, 255, 255, 0.3);
+    transition: .5s;
+}
+#leaderboard h3, #mute h3{
+    transition: .5s;
+    color: var(--white_yellow);
+    font-family: var(--title);
+    font-weight: 900;
+    font-size: 1.3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 4px 4px 6px rgba(89, 79, 68, 0.5);
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+.unmute{
+
+}
+.hidden{
+    opacity: 0;
+    position: absolute;
+    z-index: -99;
+}
+
+
+
+footer{
+    height: 20vh;
+    background-color: rgb(124, 153, 214);
 }

@@ -50,11 +50,26 @@ function nextSlide(direction) {
 
 document.addEventListener('DOMContentLoaded', () => {
   const buttons = document.querySelectorAll('#many_card_selector div button');
+  const mute = document.querySelector('.mute');
+  const unmute = document.querySelector('.unmute');
+  
+  console.log(mute);
+  console.log(unmute);
+
+  mute.addEventListener('click', () => {
+    console.log('mute clicked');
+    mute.classList.add('hidden');
+    unmute.classList.remove('hidden');
+  })
+
+  unmute.addEventListener('click', () => {
+    unmute.classList.add('hidden');
+    mute.classList.remove('hidden');
+  })
 
   buttons.forEach(button => {
     button.addEventListener('click', () => {
       buttons.forEach(btn => btn.classList.remove('active'));
-
       button.classList.add('active');
     });
   });
