@@ -11,10 +11,20 @@
 </head>
 <body>
     <h1>jeu des paires</h1>
+
+    <button type="button">jouer</button>
+
+    <div id="many_card_selector">
+        <div>
+            <button type="button" class="selector">8 cartes</button>
+            <button type="button" class="selector active">16 cartes</button>
+            <button type="button" class="selector">32 cartes</button>
+        </div>
+    </div>
     
     <div id="theme_selector">
         <section class="wrap">
-            <article class="item">
+            <article class="item" data-theme="onepiece" position="1">
                 <div>
                     <p>one piece 1</p>
                     <img loading="lazy" src="src/skin_selector/one piece/onepiece_pc3.png" alt="image de sélection de thème one piece">

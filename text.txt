@@ -25,3 +25,10 @@
     -fonction pour générer les cartes aléatoirement
     -localStorage pour transporter des infos a travers les pages
     -
+
+//choses présentes sur la page d'accueil
+    -selecteur de thèmes
+    -choix nombres de cartes
+    -bouton jouer
+    - bouton leaderboard
+    -
