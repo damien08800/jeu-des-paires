@@ -49,22 +49,34 @@ function nextSlide(direction) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+
+  const muteAll = () => {
+    playSound.volume = 0;
+    hoverSound.volume = 0;
+    changeSound.volume = 0;
+  }
+
+  const unmuteAll = () => {
+    playSound.volume = 0.3;
+    hoverSound.volume = 0.05;
+    changeSound.volume = 0.5;
+  }
+
+
   const buttons = document.querySelectorAll('#many_card_selector div button');
   const mute = document.querySelector('.mute');
   const unmute = document.querySelector('.unmute');
-  
-  console.log(mute);
-  console.log(unmute);
 
   mute.addEventListener('click', () => {
-    console.log('mute clicked');
     mute.classList.add('hidden');
     unmute.classList.remove('hidden');
+    unmuteAll();
   })
 
   unmute.addEventListener('click', () => {
     unmute.classList.add('hidden');
     mute.classList.remove('hidden');
+    muteAll();
   })
 
   buttons.forEach(button => {
@@ -82,22 +94,28 @@ document.addEventListener('DOMContentLoaded', () => {
   hoverElements.forEach(element => {
     element.addEventListener('mouseover', () => {
       hoverSound.currentTime = 0;
-      hoverSound.play();
+      hoverSound.play().catch(error => {
+        console.log('Autoplay was prevented. Audio play() must be triggered by user interaction:', error);
+      });;
     });
   });
 
   const changeElements = document.querySelectorAll('.change-element');
+  const changeElements2 = document.querySelectorAll('.change-element2');
   const changeSound = document.getElementById('change');
 
   changeSound.volume = 0.5;
   antispam2 = true;
+  antispam3 = true;
 
   changeElements.forEach(element => {
     element.addEventListener('click', () => {
       if(antispam2){
         antispam2 = !antispam2
         changeSound.currentTime = 0;
-        changeSound.play();
+        changeSound.play().catch(error => {
+          console.log('Autoplay was prevented. Audio play() must be triggered by user interaction:', error);
+        });
       }
 
       setTimeout(() => {
@@ -105,5 +123,46 @@ document.addEventListener('DOMContentLoaded', () => {
       }, "900");
     });
   });
+
+  changeElements2.forEach(element => {
+    element.addEventListener('click', () => {
+      if(antispam3){
+        antispam3 = !antispam3
+        changeSound.currentTime = 0;
+        changeSound.play().catch(error => {
+          console.log('Autoplay was prevented. Audio play() must be triggered by user interaction:', error);
+        });;
+      }
+
+      setTimeout(() => {
+        antispam3 = !antispam3;
+      }, "100");
+    });
+  });
+
+  const playbutton = document.querySelector('#play_button button');
+  const playSound = document.getElementById('play');
+
+  playSound.volume = 0.3;
+  antispam4 = true;
+
+  playbutton.addEventListener('click', () => {
+    if(antispam4){
+      antispam4 = !antispam4;
+      playSound.currentTime = 0;
+      playSound.play().catch(error => {
+        console.log('Autoplay was prevented. Audio play() must be triggered by user interaction:', error);
+      });;
+    }
+    setTimeout(() => {
+      antispam4 = !antispam4;
+    }, "500");
+  });
+
+  // const gameSound = document.getElementById('game_music');
+  // gameSound.play().catch(error => {
+  //   console.log('Autoplay was prevented. Audio play() must be triggered by user interaction:', error);
+  // });
+
 
 });

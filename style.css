@@ -23,6 +23,10 @@ body{
     background-color: var(--blue);
     height: 100dvh;
     width: 100dvw;
+    cursor: url('src/favicon_package/favicon-32x32.png'), auto !important;
+}
+button{
+    cursor: url('src/favicon_package/favicon-32x32.png'), auto !important;
 }
 
 main{
@@ -145,7 +149,7 @@ h1{
     div{
         transform: translateX(0) scale(1);
         opacity: 1;
-        cursor: pointer;
+        /* cursor: pointer; */
         transition: .9s ease-in;
     }
 }
@@ -172,7 +176,7 @@ h1{
     background-color: transparent;
     padding: 10px;
     border-radius: 50%;
-    cursor: pointer;
+    /* cursor: pointer; */
     transition: .5s;
 }
 .custom-arrows-left{
@@ -224,7 +228,7 @@ h1{
     color: var(--noir);
     font-weight: 900;
     text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5), 4px 4px 6px rgba(89, 79, 68, 0.5);
-    cursor: pointer;
+    /* cursor: pointer; */
     transition: .1s;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.3);
 }
@@ -257,7 +261,7 @@ h1{
     background-color: var(--white_yellow);
     border: 3px solid var(--noir);
     border-radius: 10px;
-    cursor: pointer;
+    /* cursor: pointer; */
     transition: all .6s, scale 0.1s;
     color: var(--noir);
     font-family: var(--corp);
@@ -304,7 +308,7 @@ content{
     justify-content: center;
     align-items: center;
     transition: .1s;
-    cursor: pointer;
+    /* cursor: pointer; */
     position: relative;
 }
 #leaderboard:active, #mute:active{
