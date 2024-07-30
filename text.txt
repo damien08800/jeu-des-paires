@@ -32,3 +32,8 @@
     -bouton jouer
     -bouton leaderboard
     -
+
+//a faire
+    -mettre une animation en fond des choses bleu claires
+    -mettre des sons
+    -changer le curseur souris

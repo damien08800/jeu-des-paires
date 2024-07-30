@@ -8,8 +8,8 @@ let maxLength = items.length;
 let slideWrapper = document.querySelector('.wrap');
 
 if (maxLength >= 3) {
-  let leftButton = '<svg class="custom-arrows custom-arrows-left" data-action="left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>';
-  let rightButton = '<svg class="custom-arrows custom-arrows-right" data-action="right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>';
+  let leftButton = '<svg class="custom-arrows custom-arrows-left hover-element change-element" data-action="left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>';
+  let rightButton = '<svg class="custom-arrows custom-arrows-right hover-element change-element" data-action="right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>';
 
   slideWrapper.insertAdjacentHTML('afterbegin', leftButton);
   slideWrapper.insertAdjacentHTML('beforeend', rightButton);
@@ -73,4 +73,37 @@ document.addEventListener('DOMContentLoaded', () => {
       button.classList.add('active');
     });
   });
+
+  const hoverElements = document.querySelectorAll('.hover-element');
+  const hoverSound = document.getElementById('hover-sound');
+
+  hoverSound.volume = 0.05;
+
+  hoverElements.forEach(element => {
+    element.addEventListener('mouseover', () => {
+      hoverSound.currentTime = 0;
+      hoverSound.play();
+    });
+  });
+
+  const changeElements = document.querySelectorAll('.change-element');
+  const changeSound = document.getElementById('change');
+
+  changeSound.volume = 0.5;
+  antispam2 = true;
+
+  changeElements.forEach(element => {
+    element.addEventListener('click', () => {
+      if(antispam2){
+        antispam2 = !antispam2
+        changeSound.currentTime = 0;
+        changeSound.play();
+      }
+
+      setTimeout(() => {
+        antispam2 = !antispam2;
+      }, "900");
+    });
+  });
+
 });

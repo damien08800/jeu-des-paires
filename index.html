@@ -136,9 +136,9 @@
 
             <div id="many_card_selector">
                 <div>
-                    <button type="button" class="selector">8 cartes</button>
-                    <button type="button" class="selector active">16 cartes</button>
-                    <button type="button" class="selector">32 cartes</button>
+                    <button type="button" class="selector hover-element change-element">8 cartes</button>
+                    <button type="button" class="selector active hover-element change-element">16 cartes</button>
+                    <button type="button" class="selector hover-element change-element">32 cartes</button>
                 </div>
             </div>
             
@@ -178,7 +178,7 @@
             </div>
 
             <div id="play_button" type="button">
-                <button id="play_button" type="button">jouer</button>
+                <button class="hover-element" id="play_button" type="button">jouer</button>
             </div>
             
         </content>
@@ -201,8 +201,11 @@
     </main>
 
     <footer>
-        <p>footer</p>
     </footer>
+    <audio id="hover-sound" src="src/sounds/hover.mp3" preload="auto"></audio>
+    <audio id="game_music" src="src/sounds/game_music.wav" preload="auto"></audio>
+    <audio id="play" src="src/sounds/play.wav" preload="auto"></audio>
+    <audio id="change" src="src/sounds/change.wav" preload="auto"></audio>
     <script src="src/js/accueil.js"></script>
 </body>
 </html>

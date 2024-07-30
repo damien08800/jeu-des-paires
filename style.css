@@ -334,9 +334,6 @@ content{
     -moz-user-select: none;
     -ms-user-select: none;
 }
-.unmute{
-
-}
 .hidden{
     opacity: 0;
     position: absolute;
@@ -347,5 +344,4 @@ content{
 
 footer{
     height: 20vh;
-    background-color: rgb(124, 153, 214);
 }
