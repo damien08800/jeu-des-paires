@@ -50,6 +50,23 @@ function nextSlide(direction) {
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  const buttons = document.querySelectorAll('#many_card_selector div button');
+  const mute = document.querySelector('.mute');
+  const unmute = document.querySelector('.unmute');
+  const hoverElements = document.querySelectorAll('.hover-element');
+  const hoverSound = document.getElementById('hover-sound');
+  hoverSound.volume = 0.05;
+  const changeElements = document.querySelectorAll('.change-element');
+  const changeElements2 = document.querySelectorAll('.change-element2');
+  const changeSound = document.getElementById('change');
+  changeSound.volume = 0.5;
+  antispam2 = true;
+  antispam3 = true;
+  const playbutton = document.querySelector('#play_button button');
+  const playSound = document.getElementById('play');
+  playSound.volume = 0.3;
+  antispam4 = true;
+
   const muteAll = () => {
     playSound.volume = 0;
     hoverSound.volume = 0;
@@ -61,11 +78,55 @@ document.addEventListener('DOMContentLoaded', () => {
     hoverSound.volume = 0.05;
     changeSound.volume = 0.5;
   }
+  function loadSelectedSkin() {
+    const savedSkin = localStorage.getItem('selectedSkin');
+    if (savedSkin){
+      console.log(savedSkin);
+      items.forEach( it => {
+        if(it.querySelector('h2').textContent == savedSkin){
+          while(it.getAttribute('position') != 2){
+            nextSlide("right");
+          }
+        }
+      });
+    }
+  }
+  loadSelectedSkin()
+
+  function loadSelectedManyCards() {
+    const savedManyCards = localStorage.getItem('selectedManyCards');
+    if (savedManyCards){
+      console.log(savedManyCards);
+      changeElements2.forEach( el => {
+        el.classList.remove('active');
+        if(el.textContent == savedManyCards){
+          el.classList.add('active');
+        }
+      })
+    }
+  }
+  loadSelectedManyCards()
+
+  function loadMuted() {
+    const muted = localStorage.getItem('muted');
+    if (muted){
+      console.log(typeof(muted));
+      if(muted == 'true'){
+        unmute.classList.add('hidden');
+        mute.classList.remove('hidden');
+        muteAll();
+      }
+      else{
+        mute.classList.add('hidden');
+        unmute.classList.remove('hidden');
+        unmuteAll();
+      }
+      
+    }
+  }
+  loadMuted()
 
 
-  const buttons = document.querySelectorAll('#many_card_selector div button');
-  const mute = document.querySelector('.mute');
-  const unmute = document.querySelector('.unmute');
 
   mute.addEventListener('click', () => {
     mute.classList.add('hidden');
@@ -86,10 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const hoverElements = document.querySelectorAll('.hover-element');
-  const hoverSound = document.getElementById('hover-sound');
 
-  hoverSound.volume = 0.05;
 
   hoverElements.forEach(element => {
     element.addEventListener('mouseover', () => {
@@ -100,13 +158,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const changeElements = document.querySelectorAll('.change-element');
-  const changeElements2 = document.querySelectorAll('.change-element2');
-  const changeSound = document.getElementById('change');
-
-  changeSound.volume = 0.5;
-  antispam2 = true;
-  antispam3 = true;
 
   changeElements.forEach(element => {
     element.addEventListener('click', () => {
@@ -133,18 +184,13 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log('Autoplay was prevented. Audio play() must be triggered by user interaction:', error);
         });;
       }
-
       setTimeout(() => {
         antispam3 = !antispam3;
       }, "100");
+
     });
   });
 
-  const playbutton = document.querySelector('#play_button button');
-  const playSound = document.getElementById('play');
-
-  playSound.volume = 0.3;
-  antispam4 = true;
 
   playbutton.addEventListener('click', () => {
     if(antispam4){
@@ -154,15 +200,41 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Autoplay was prevented. Audio play() must be triggered by user interaction:', error);
       });;
     }
+    
+    items.forEach(it => {
+      if(it.getAttribute('position') == 2){
+        let selectedSkin = it.querySelector('h2').textContent;
+        localStorage.setItem('selectedSkin', selectedSkin);
+      }
+    })
+    changeElements2.forEach(it => {
+      if(it.classList.contains('active')){
+        let selectedManyCards = it.textContent;
+        localStorage.setItem('selectedManyCards', selectedManyCards);
+      }
+    })
+
+    if(mute.classList.contains('hidden')){
+      let muted = false;
+      localStorage.setItem('muted', muted);
+    }
+    else{
+      let muted = true;
+      localStorage.setItem('muted', muted);
+    }
+
     setTimeout(() => {
       antispam4 = !antispam4;
-    }, "500");
+      window.location.href = 'game/game.html';
+    }, "300");
+
   });
 
   // const gameSound = document.getElementById('game_music');
   // gameSound.play().catch(error => {
   //   console.log('Autoplay was prevented. Audio play() must be triggered by user interaction:', error);
   // });
+
 
 
 });

@@ -177,7 +177,7 @@ h1{
     padding: 10px;
     border-radius: 50%;
     /* cursor: pointer; */
-    transition: .5s;
+    transition: .1s;
 }
 .custom-arrows-left{
     left: 15%;
@@ -262,7 +262,7 @@ h1{
     border: 3px solid var(--noir);
     border-radius: 10px;
     /* cursor: pointer; */
-    transition: all .6s, scale 0.1s;
+    transition: all .1s, scale 0.1s;
     color: var(--noir);
     font-family: var(--corp);
     font-size: 1.7rem;
