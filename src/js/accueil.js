@@ -105,6 +105,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       })
     }
+    else{
+      changeElements2[1].classList.add('active');
+    }
   }
   loadSelectedManyCards()
 
