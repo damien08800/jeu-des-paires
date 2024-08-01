@@ -52,7 +52,7 @@ h1{
     color: var(--white_yellow);
     text-align: center;
     font-size: 5rem;
-    font-family: var(--title);
+    font-family: var(--corp);
     font-weight: bold;
     text-transform: capitalize;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 4px 4px 6px rgba(89, 79, 68, 0.5);

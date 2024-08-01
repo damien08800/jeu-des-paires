@@ -83,7 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (savedSkin){
       console.log(savedSkin);
       items.forEach( it => {
-        if(it.querySelector('h2').textContent == savedSkin){
+        
+        if(it.getAttribute('data-theme') == savedSkin){
           while(it.getAttribute('position') != 2){
             nextSlide("right");
           }
@@ -99,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log(savedManyCards);
       changeElements2.forEach( el => {
         el.classList.remove('active');
-        if(el.textContent == savedManyCards){
+        if(el.getAttribute('number') == savedManyCards){
           el.classList.add('active');
         }
       })
@@ -203,13 +204,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
     items.forEach(it => {
       if(it.getAttribute('position') == 2){
-        let selectedSkin = it.querySelector('h2').textContent;
+        let selectedSkin = it.getAttribute('data-theme');
         localStorage.setItem('selectedSkin', selectedSkin);
       }
     })
     changeElements2.forEach(it => {
       if(it.classList.contains('active')){
-        let selectedManyCards = it.textContent;
+        let selectedManyCards = it.getAttribute('number');
         localStorage.setItem('selectedManyCards', selectedManyCards);
       }
     })
@@ -226,7 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       antispam4 = !antispam4;
       window.location.href = 'game/game.html';
-    }, "300");
+    }, "900");
 
   });
 

@@ -31,9 +31,10 @@
     -choix nombres de cartes
     -bouton jouer
     -bouton leaderboard
-    -
+    -mute/unmute
 
-//a faire
+//a faire accueil
     -mettre une animation en fond des choses bleu claires
-    -mettre des sons
-    -changer le curseur souris
+
+//a faire game
+    -
