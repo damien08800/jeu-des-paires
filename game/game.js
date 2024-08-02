@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     console.log(savedManyCards, savedSkin);
 
+    //##################################################################
+    //### chargement du bon fichier css
+    //################################################################## 
     const gameDiv = document.getElementById("game");
     if (savedManyCards) {
         const link = document.createElement('link');
@@ -50,5 +53,12 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         console.error('Aucune valeur trouvée pour le nombre de cartes');
     }
+
+    //##################################################################
+    //### mise en place du titre selon le thème
+    //################################################################## 
+    let title = document.querySelector('#theme_name h3');
+    title.textContent = savedSkin;
+
 });
 
