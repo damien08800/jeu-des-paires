@@ -91,3 +91,19 @@ nav #points{
     user-select: none;
     padding: 0 1rem;
 }
+
+@media (max-width: 850px){
+    nav{
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+    nav #navigations article h3, #theme_name h3,#points article h3{
+        font-size: 0.75rem;
+    }
+    #theme_name{
+        display: none;
+    }
+    nav #navigations article, #points article{
+        height: 50%;
+    }
+}

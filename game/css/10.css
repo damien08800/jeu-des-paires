@@ -41,7 +41,7 @@
     align-items: center;
     position: relative;
 }
-#game div span.back-image{
+#game div span.front-image{
     background-image: url('../../src/img/onepiece/onepieceback.png');
     background-repeat: no-repeat;
     background-position: bottom;
@@ -49,7 +49,7 @@
     width: 100%;
     height: 100%;
 }
-#game div.last-line span.back-image{
+#game div.last-line span.front-image{
     background-position: top;
 }
 
@@ -69,7 +69,7 @@
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(3, 1fr);
     }
-    #game div span.back-image{
+    #game div span.front-image{
         background-position: center !important;
     }
     #game_container{

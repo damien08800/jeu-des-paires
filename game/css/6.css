@@ -41,7 +41,7 @@
     align-items: center;
     position: relative;
 }
-#game div span.back-image{
+#game div span.front-image{
     background-image: url('../../src/img/onepiece/onepieceback.png');
     background-repeat: no-repeat;
     background-position: center;

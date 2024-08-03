@@ -27,12 +27,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.error('Nombre de cartes non supporté');
                 return; 
         }
-
         document.head.appendChild(link);
+        
+        
+        //##################################################################
+        //### ajout des div et de la fonction flip
+        //################################################################## 
+        const flipCard = (container) =>{
+            container.classList.toggle('flip');
+        }
 
         for (let i = 0; i < savedManyCards; i++) {
             const divCard = document.createElement('div');
-
             if(i+1 <= savedManyCards/2){
                 divCard.classList.add('div-card', `card-${i+1}`, 'first-line');
             }
@@ -40,14 +46,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 divCard.classList.add('div-card', `card-${i+1}`, 'last-line');
             }
 
+            const container = document.createElement('div');
+            container.classList.add('cards-container');
+
             const backImage = document.createElement('span')
             const frontImage = document.createElement('span')
             backImage.classList.add('back-image')
             frontImage.classList.add('front-image')
-            backImage.src = `../src/img/onepiece/onepieceback.png`;
 
-            divCard.appendChild(backImage);
-            divCard.appendChild(frontImage);
+            container.addEventListener('click', function(){
+                console.log('oui')
+                flipCard(container);
+            })
+
+            container.appendChild(backImage);
+            container.appendChild(frontImage);
+            divCard.appendChild(container); 
             gameDiv.appendChild(divCard);
         }
     } else {
@@ -59,6 +73,18 @@ document.addEventListener('DOMContentLoaded', function() {
     //################################################################## 
     let title = document.querySelector('#theme_name h3');
     title.textContent = savedSkin;
+
+    //##################################################################
+    //### fonctionnement de la navigation (leave et reset)
+    //##################################################################
+    const leaveButton = document.querySelector('#leave');
+    const resetButton = document.querySelector('#reset');
+    const timerButton = document.querySelector('#timer');
+
+    leaveButton.addEventListener("click", function(){
+        window.location.href = "../";
+    })
+
 
 });
 
