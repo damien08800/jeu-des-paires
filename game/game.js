@@ -86,9 +86,38 @@ document.addEventListener('DOMContentLoaded', function() {
     })
 
 
+    function shuffle(arr) {
+        const arrCopy = [...arr];
+        for (let i = arrCopy.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arrCopy[i], arrCopy[j]] = [arrCopy[j], arrCopy[i]];
+        }
+        return arrCopy;
+    }
+    
+    function randomCards(){
+        let tab = [];
+        for (let i = 1; i <= parseInt(savedManyCards); i++){
+            tab.push(i);
+        }
+        return shuffle(tab);
+    }
+    console.log(randomCards());
+
 });
 
 
 
 // fonction shuffle
+// ajout du son sur la page de jeu
+// fonction pour lancer le timer
+// fonction pour stopper le timer
+// fonction qui met dans un tableau X nombres de cartes représenté par [1,6,4,3,2,5] -> pour retrouver la carte 1.png
+// initialisation des variable de jeu: nombre de coups, temps, ...
+// ajouter les cartes dans les span selon le thème
+// trouver un moyen de retrouver le paires sans le voir dans l'inspecteur
+// fonction pour vérifier si les deux cartes retournées sont des paires 
+    //-> si oui: les enlevé et ajouter un point
+    //-> si non: les retourner
+// 
 
