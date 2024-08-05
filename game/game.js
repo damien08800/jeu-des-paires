@@ -88,3 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
+
+
+// fonction shuffle
+
