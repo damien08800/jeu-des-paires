@@ -97,9 +97,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         backImage.style.backgroundImage = "url('../src/img/onepiece/onepieceback.png')";
                         frontImage.style.backgroundImage = `url('../src/img/onepiece/${cardsList[i]}.png')`;
                         break;
-                    case "hunter x hunter":
-                        backImage.style.backgroundImage = "url('../src/img/onepiece/onepieceback.png')";
-                        frontImage.style.backgroundImage = `url('../src/img/onepiece/${cardsList[i]}.png')`;
+                    case "hxh":
+                        backImage.style.backgroundImage = "url('../src/img/hxh/hxhback.png')";
+                        frontImage.style.backgroundImage = `url('../src/img/hxh/${cardsList[i]}.png')`;
                         break;
                     default:
                         backImage.style.backgroundImage = "url('../src/img/onepiece/onepieceback.png')";
