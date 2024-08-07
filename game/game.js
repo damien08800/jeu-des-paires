@@ -123,14 +123,125 @@ document.addEventListener('DOMContentLoaded', function() {
         //### ajout des div et des images en background
         //################################################################## 
         loadRandomCards();
-        console.log(randomCardsList());
 
+        
 
+        let state = {
+            _nbCoups: 0,
+            _nbPairesTrouve: 0,
+            _canFlip: true,
+            _nbFlippedCards: 0,
+            _card1: null,
+            _card2: null,
+        
+            get card1() {
+                return this._card1;
+            },
+            set card1(value) {
+                this._card1 = value;
+            },
+            get card2() {
+                return this._card2;
+            },
+            set card2(value) {
+                this._card2 = value;
+                // onCard2Change();
+            },
+            get nbCoups() {
+                return this._nbCoups;
+            },
+            set nbCoups(value) {
+                this._nbCoups = value;
+            },
+        
+            get nbPairesTrouve() {
+                return this._nbPairesTrouve;
+            },
+            set nbPairesTrouve(value) {
+                this._nbPairesTrouve = value;
+                onNbPairesTrouveChange(value);
+            },
+        
+            get canFlip() {
+                return this._canFlip;
+            },
+            set canFlip(value) {
+                this._canFlip = value;
+            },
+        
+            get nbFlippedCards() {
+                return this._nbFlippedCards;
+            },
+            set nbFlippedCards(value) {
+                this._nbFlippedCards = value;
+                onNbFlippedCardsChange(value);
+            }
+        };
 
-
-        const flipCard = (container) =>{
-            container.classList.toggle('flip');
+        function onCard2Change(){
+            if(state.card1 != null && state.card2 != null){
+                console.log(state.card1, state.card2);
+                state.card1 = null;
+                state.card2 = null;
+            }
         }
+        
+        function onNbFlippedCardsChange(newValue) {
+            console.log("La valeur de nbFlippedCards a changé :", newValue);
+            if(state.nbFlippedCards == 2){
+                state.canFlip = false;
+                setTimeout(() => {
+                    if(state.card1 != null && state.card2 != null){
+                        if(state.card1.style.backgroundImage == state.card2.style.backgroundImage){
+                            removeClassFromPaire(state.card1.style.backgroundImage);
+                            state.nbPairesTrouve++;
+                        }
+                        state.card1 = null;
+                        state.card2 = null;
+                    }                        
+                    unflipAll();
+                    state.nbFlippedCards = 0;
+                    state.canFlip = true;
+                  }, "300");
+            }
+        }
+        function onNbPairesTrouveChange(newValue) {
+            if(state.nbPairesTrouve == SAVED_MANY_CARDS/2){
+                console.log(state.nbCoups);
+                console.log(state.nbPairesTrouve);
+                alert("gg ez")
+            }
+        }
+        function removeClassFromPaire(url1){
+            let containers = document.querySelectorAll('.notFound');
+            containers.forEach(container => {
+                if(container.lastChild.style.backgroundImage == url1){
+                    container.classList.remove('notFound');
+                    container.removeEventListener('click', handleClick);
+                }
+            })
+        }
+
+        function handleClick() {
+            if (state.canFlip) {
+                state.card1 == null ? state.card1 = this.lastChild : state.card2 = this.lastChild;
+                state.canFlip = false;
+                flipCard(this);
+                state.nbCoups++;
+                setTimeout(() => {
+                    state.canFlip = true;
+                    state.nbFlippedCards++;
+                }, 500);
+            }
+        }
+
+        let containers = document.querySelectorAll('.cards-container');
+        containers.forEach(container => {
+            container.addEventListener('click', handleClick);
+        });
+
+
+
 
 
         //##################################################################
@@ -172,4 +283,3 @@ document.addEventListener('DOMContentLoaded', function() {
     //-> si oui: les enlevé et ajouter un point
     //-> si non: les retourner
 // 
-
