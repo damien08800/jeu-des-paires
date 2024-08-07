@@ -73,15 +73,18 @@ nav #points{
     justify-content: center;
     align-items: center;
     height: 100%;
+    width: 200px;
 }
 #points article{
     background-color: var(--lightblue);
     border-radius: 10px;
     height: 70%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: inset 0 0 0 3px var(--white_yellow);
+    padding: 1rem;
 }
 #points article h3{
     color: var(--white_yellow);

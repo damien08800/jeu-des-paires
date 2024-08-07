@@ -3,6 +3,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const SAVED_SKIN = localStorage.getItem('selectedSkin');
     const MUTED = localStorage.getItem('muted');
     const GAME_DIV = document.getElementById("game");
+    const BOARD = document.getElementById("board");
+    const board_theme = document.getElementById("board_theme");
+    const board_nbCoups = document.getElementById("board_nbCoups");
+    const board_temps = document.getElementById("board_temps");
+    const best = document.getElementById("best");
 
     console.log(SAVED_MANY_CARDS, SAVED_SKIN, MUTED);
 
@@ -195,7 +200,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         function onNbPairesTrouveChange(newValue) {
-            if(state.nbPairesTrouve == SAVED_MANY_CARDS/2){
+            if(newValue == SAVED_MANY_CARDS/2){
+                stopChronometer();
+                BOARD.style.zIndex = 3;
+                BOARD.style.opacity = 1;
+                board_theme.textContent+=SAVED_SKIN;
+                board_nbCoups.textContent+=state.nbCoups;
+
                 console.log(state.nbCoups);
                 console.log(state.nbPairesTrouve);
                 alert("gg ez")
@@ -213,6 +224,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         function handleClick() {
             if (state.canFlip) {
+                startChronometer();
                 state.card1 == null ? state.card1 = this.lastChild : state.card2 = this.lastChild;
                 state.canFlip = false;
                 flipCard(this);
@@ -231,10 +243,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         addEventListenerClick();
 
-
-
-
-
         //##################################################################
         //### mise en place du titre selon le thème
         //################################################################## 
@@ -246,7 +254,6 @@ document.addEventListener('DOMContentLoaded', function() {
         //##################################################################
         const leaveButton = document.querySelector('#leave');
         const resetButton = document.querySelector('#reset');
-        const timerButton = document.querySelector('#timer');
 
         leaveButton.addEventListener("click", function(){
             window.location.href = "../";
@@ -255,9 +262,47 @@ document.addEventListener('DOMContentLoaded', function() {
             clearGameDiv();
             loadRandomCards(randomCardsList());
             addEventListenerClick();
+            resetChronometer();
+            state.nbPairesTrouve = 0;
+            state.nbCoups = 0;
+            BOARD.style.zIndex = -3;
+            BOARD.style.opacity = 0;
         })
+        //##################################################################
+        //### timer
+        //##################################################################
+        let chronometerInterval;
+        let totalTime = 0;
 
+        function startChronometer() {
+            if (chronometerInterval) return; // Empêche de lancer plusieurs chronomètres en même temps
+            chronometerInterval = setInterval(updateChronometer, 10);
+        }
 
+        function stopChronometer() {
+            clearInterval(chronometerInterval);
+            chronometerInterval = null;
+        }
+
+        function resetChronometer() {
+            stopChronometer();
+            totalTime = 0;
+            document.getElementById('timer').innerText = "00:00:00";
+        }
+
+        function updateChronometer() {
+            totalTime++;
+            let minutes = Math.floor(totalTime / 6000);
+            let seconds = Math.floor((totalTime % 6000) / 100);
+            let time = totalTime % 100;
+
+            // Formatage pour toujours afficher deux chiffres
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+            time = time < 10 ? '0' + time : time;
+
+            document.getElementById('timer').innerText = `${minutes}:${seconds}:${time}`;
+        }
 
     } else {
         console.error('Aucune valeur trouvée pour le nombre de cartes ou de thème');
