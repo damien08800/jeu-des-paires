@@ -34,8 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
             GAME_DIV.removeChild(GAME_DIV.firstChild);
         }
     }
-    const loadRandomCards = () =>{
-        let cardsList = randomCardsList();
+    const loadRandomCards = (cardsList) =>{
 
         for (let i = 0; i < SAVED_MANY_CARDS; i++) {
             var divCard = document.createElement('div');
@@ -121,10 +120,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         //##################################################################
         //### ajout des div et des images en background
-        //################################################################## 
-        loadRandomCards();
-
-        
+        //##################################################################
+        // let cardsList = randomCardsList();
+        loadRandomCards(randomCardsList());
 
         let state = {
             _nbCoups: 0,
@@ -145,7 +143,6 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             set card2(value) {
                 this._card2 = value;
-                // onCard2Change();
             },
             get nbCoups() {
                 return this._nbCoups;
@@ -177,14 +174,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 onNbFlippedCardsChange(value);
             }
         };
-
-        function onCard2Change(){
-            if(state.card1 != null && state.card2 != null){
-                console.log(state.card1, state.card2);
-                state.card1 = null;
-                state.card2 = null;
-            }
-        }
         
         function onNbFlippedCardsChange(newValue) {
             console.log("La valeur de nbFlippedCards a changé :", newValue);
@@ -234,11 +223,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 }, 500);
             }
         }
-
-        let containers = document.querySelectorAll('.cards-container');
-        containers.forEach(container => {
-            container.addEventListener('click', handleClick);
-        });
+        function addEventListenerClick(){
+            let containers = document.querySelectorAll('.cards-container');
+            containers.forEach(container => {
+                container.addEventListener('click', handleClick);
+            });
+        }
+        addEventListenerClick();
 
 
 
@@ -259,6 +250,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         leaveButton.addEventListener("click", function(){
             window.location.href = "../";
+        })
+        resetButton.addEventListener("click", function(){
+            clearGameDiv();
+            loadRandomCards(randomCardsList());
+            addEventListenerClick();
         })
 
 
