@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const board_theme = document.getElementById("board_theme");
     const board_nbCoups = document.getElementById("board_nbCoups");
     const board_temps = document.getElementById("board_temps");
-    const best = document.getElementById("best");
+    const board_best = document.getElementById("best");
 
     console.log(SAVED_MANY_CARDS, SAVED_SKIN, MUTED);
 
@@ -202,10 +202,22 @@ document.addEventListener('DOMContentLoaded', function() {
         function onNbPairesTrouveChange(newValue) {
             if(newValue == SAVED_MANY_CARDS/2){
                 stopChronometer();
+                let newTime = document.querySelector("#timer").textContent
                 BOARD.style.zIndex = 3;
                 BOARD.style.opacity = 1;
-                board_theme.textContent+=SAVED_SKIN;
-                board_nbCoups.textContent+=state.nbCoups;
+                board_theme.textContent = "thème: "+SAVED_SKIN;
+                board_nbCoups.textContent = "nombres de coups: "+state.nbCoups;
+                board_temps.textContent = "temps: "+newTime;
+                const BEST = localStorage.getItem('best');
+                if(BEST){
+                    if(compareTimes(newTime, BEST)){
+                        localStorage.setItem('best', newTime);
+                    }
+                }
+                else{
+                    localStorage.setItem('best', newTime);
+                }
+                board_best.textContent = "meilleur temps: "+localStorage.getItem("best");
 
                 console.log(state.nbCoups);
                 console.log(state.nbPairesTrouve);
@@ -304,6 +316,20 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('timer').innerText = `${minutes}:${seconds}:${time}`;
         }
 
+        function convertTimeToCentiseconds(timeString) {
+            const [minutes, seconds, centiseconds] = timeString.split(':').map(Number);
+            return (minutes * 6000) + (seconds * 100) + centiseconds;
+        }
+        
+        function compareTimes(newTime, bestTime) {
+            const time1InCentiseconds = convertTimeToCentiseconds(newTime);
+            const time2InCentiseconds = convertTimeToCentiseconds(bestTime);
+        
+            if (time1InCentiseconds < time2InCentiseconds) {
+                return true;
+            } return false;
+        }
+
     } else {
         console.error('Aucune valeur trouvée pour le nombre de cartes ou de thème');
     }
@@ -312,15 +338,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-// fonction shuffle
-// ajout du son sur la page de jeu
-// fonction pour lancer le timer
-// fonction pour stopper le timer
-// fonction qui met dans un tableau X nombres de cartes représenté par [1,6,4,3,2,5] -> pour retrouver la carte 1.png
-// initialisation des variable de jeu: nombre de coups, temps, ...
-// ajouter les cartes dans les span selon le thème
-// trouver un moyen de retrouver le paires sans le voir dans l'inspecteur
-// fonction pour vérifier si les deux cartes retournées sont des paires 
-    //-> si oui: les enlevé et ajouter un point
-    //-> si non: les retourner
-// 
+// ajout du son au click
+// ajout du son quand c'est une paire
+// ajout du son quand c'est pas une paire
+// ajout du son en fond
+// mettre une crois pour fermer fenêtre fin de partie
+//bug -> on peut clicker deux fois sur la même cartes
+//faire les version 6 et 10 cartes
+//version mobile de la page d’accueil
+//refaire le style
+//
